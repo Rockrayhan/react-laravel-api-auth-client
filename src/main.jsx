@@ -16,6 +16,7 @@ import AuthProvider from './useContext/AuthProvider.jsx';
 import Reset from './Pages/Reset.jsx';
 import ChangePassword from './Pages/ChangePassword.jsx';
 import InsertProduct from './Pages/InsertProduct.jsx';
+import EditProduct from './Pages/EditProduct.jsx';
 
 
 axios.defaults.headers.common['Authorization'] = 'Bearer '+localStorage.getItem('token');
@@ -52,10 +53,18 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile/>,
+        // loader: () => fetch('http://127.0.0.1:8000/api/products')
       },
       {
         path: "/insert",
         element: <InsertProduct/>,
+      },
+      {
+        path: "/edit/:id",
+        element: <EditProduct/>,
+        // loader: () => fetch('http://127.0.0.1:8000/api/products')
+        loader:({params}) => fetch(`http://127.0.0.1:8000/api/products/edit/${params.id}`)
+        
       },
     ],
   },

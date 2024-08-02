@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../useContext/AuthProvider';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLoaderData, useNavigate } from 'react-router-dom';
 
 const Profile = () => {
 
